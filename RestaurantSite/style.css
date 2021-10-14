@@ -25,11 +25,16 @@ header {
   transition: transform 0.5s linear;
 }
 
-.container .show-nav {
+.container.show-nav {
   transform: rotate(-20deg);
 }
 
-.circle-container {
+.container.show-nav + nav li {
+  transform: rotateX(0);
+  transition-delay: 0.3s;
+}
+
+.circle_container {
   position: absolute;
   top: -100px;
   left: -100px;
@@ -49,10 +54,14 @@ header {
   top: 50%;
   left: 50%;
   height: 100px;
-  background-color: #fff;
+  background-color: transparent;
   border: 0;
   font-size: 26px;
   color: #fff;
+  cursor: pointer;
+}
+.circle button:focus {
+  outline: none;
 }
 
 .circle button#open {
@@ -63,4 +72,35 @@ header {
   top: 60%;
   transform: rotate(90deg);
   transform-origin: top left;
+}
+
+nav {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  z-index: 999;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+nav ul li {
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 40px 0;
+  cursor: pointer;
+  /* transform: translateX(-150%); */
+  transition: transform 0.4s ease-in;
+}
+
+nav ul li:hover {
+  color: yellowgreen;
+}
+
+nav ul i {
+  font-size: 20px;
+  margin-left: 10px;
 }
